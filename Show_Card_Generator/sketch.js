@@ -2,18 +2,19 @@
 let textString = "touch feel play squeeze flick jump smell show taste break connect move dance listen learn tell speak shout whisper chew draw interact bounce roll hang turn on turn off print poke pick pull push connect think create eat correlate give take unite liberate entertain imagine".replace(/ /g, "");
 
 let textArray = [];
+let cellSizeMultiplier = .5;
 
-let xGrid = 54*2;
-let yGrid = 38*2;
+let xGrid = 54 / cellSizeMultiplier;
+let yGrid = 38 / cellSizeMultiplier;
 
-let cellSize = 4;
+let cellSize = 8 * cellSizeMultiplier;
 
 let fixed_01;
 let img;
 
 function preload() {
   fixed_01 = loadFont("fonts/fixed_01.ttf");
-  img = loadImage("img/text-only.png");
+  img = loadImage("img/jump3.png");
 }
 
 function setup() {
@@ -50,7 +51,8 @@ function indexSelect(stringToChooseFrom, idx){
 }
 
 function prepareText(){
-	image(img, 0, 0);
+	image(img, 0, 0, 960/2,685/2);
+
 	let counter = 0;
 
 	for (let y = 0; y < yGrid; y++){
@@ -61,9 +63,9 @@ function prepareText(){
 			}
 
 			let xPos = x * cellSize;
-			let yPos = y * cellSize ;
+			let yPos = y * cellSize;
 
-			let c = get(xPos,yPos)[0];
+			let c = get(xPos,yPos);
 			
 			
 
